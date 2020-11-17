@@ -14,13 +14,13 @@ export default function PostCard() {
 
     return (
         <article className="post-card">
-            <Link className="link">
+            
                 <div>
-                    <h1>Email</h1>
+                    <h4>Email</h4>
                     <p>post body</p>
                     <button>comment button</button>
                 </div>
-            </Link>
+        
         </article>
     );
 

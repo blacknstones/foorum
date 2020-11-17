@@ -1,13 +1,13 @@
 import React from "react";
 import PostForm from "./PostForm";
 import PostCard from "./PostCard";
-import Api from "../../api/Api";
 import PostsApi from "../../api/PostsApi";
 
 function PostsPage() {
     const createPost = (postData) => {
-        Api.post("/posts", postData)
-            .then(r => console.log(r));
+
+        PostsApi.createPost(postData)
+            .then(response => console.log(response));
     }
 
     return (
