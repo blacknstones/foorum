@@ -1,15 +1,22 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import PostForm from "./PostForm";
 import PostsApi from "../../api/PostsApi";
 import PostsList from "./PostsList";
 
 export default function PostsPage() {
     const [posts, setPosts] = useState([]);
+    const [isCreating, setIsCreating] = useState(false);
+
+    const onCreatePostClick = () => {
+        setIsCreating(true);
+    };
+
 
     const createPost = (postData) => {
         return PostsApi.createPost(postData)
-        .then(response => setPosts([response.data, ...posts]));
-        
+        .then(response => setPosts([response.data, ...posts]))
+        .then(setIsCreating(false)); 
     };
 
     const getAll = () => {
@@ -30,7 +37,10 @@ export default function PostsPage() {
 
     return (
         <div>
-            <PostForm onSubmit = {createPost} />
+            {isCreating ? 
+            <PostForm onSubmit = {createPost} /> : 
+            <button onClick={onCreatePostClick}>Create post</button>}
+    
             <PostsList posts={posts} 
             onDelete={deletePost}/>
         </div>

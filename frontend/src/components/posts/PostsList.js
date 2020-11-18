@@ -1,10 +1,20 @@
 import React from "react";
 import PostCard from "./PostCard";
 
-export default function PostsList({posts, onDelete}) {
+export default function PostsList({ posts, onDelete }) {
+    console.log(posts);
+    console.log(posts.length);
+
     return (
         <div>
-            {posts.map(post => (<PostCard key={post.id} post={post} onDelete={onDelete}/> ))}
+            {
+                posts.length === 0 ?
+                    <p>This is no post yet. Create a new post now!</p> :
+                    <div>
+                        {posts.map(post => (<PostCard key={post.id} post={post} onDelete={onDelete} />))}
+                    </div>
+            }
         </div>
+
     );
 }
