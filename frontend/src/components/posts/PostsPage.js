@@ -1,27 +1,45 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import PostForm from "./PostForm";
-import PostCard from "./PostCard";
 import PostsApi from "../../api/PostsApi";
-import AllPosts from "./AllPosts";
+import PostsList from "./PostsList";
 
-function PostsPage() {
+export default function PostsPage() {
+    const [posts, setPosts] = useState([]);
+
     const createPost = (postData) => {
-
-        PostsApi.createPost(postData)
-            .then(response => console.log(response));
+        return PostsApi.createPost(postData)
+        .then(response => setPosts([response.data, ...posts]));
+        
     };
 
-    const allPosts = () => {
-        PostsApi.getAllPosts() 
+    const getAll = () => {
+        PostsApi.getAllPosts()
+        .then(response => setPosts(response.data.sort((a, b) => b.id - a.id)));
     };
+
+    const updatePost = ({updatedPost}) => {
+        return PostsApi.updatePost(updatedPost)
+        .then(response => getAll());
+    };
+
+    const deletePost = (post) => {
+        return PostsApi.deletePost(post.id)
+        .then(() => setPosts(posts.filter(p => p.id !== post.id)));
+    }
+
+
+    useEffect(()=>{
+        getAll()
+    },[]);
 
 
     return (
         <div>
             <PostForm onSubmit = {createPost} />
-            <AllPosts data={allPosts}/>
+            <PostsList posts={posts} 
+            onPostUpdate={updatePost}
+            onDelete={deletePost}/>
         </div>
   
     );
 }
-export default PostsPage;
