@@ -17,11 +17,6 @@ export default function PostsPage() {
         .then(response => setPosts(response.data.sort((a, b) => b.id - a.id)));
     };
 
-    const updatePost = ({updatedPost}) => {
-        return PostsApi.updatePost(updatedPost)
-        .then(response => getAll());
-    };
-
     const deletePost = (post) => {
         return PostsApi.deletePost(post.id)
         .then(() => setPosts(posts.filter(p => p.id !== post.id)));
@@ -37,7 +32,6 @@ export default function PostsPage() {
         <div>
             <PostForm onSubmit = {createPost} />
             <PostsList posts={posts} 
-            onPostUpdate={updatePost}
             onDelete={deletePost}/>
         </div>
   

@@ -4,14 +4,14 @@ function PostForm({ onSubmit , initialTitle, initialBody}) {
     const [title, setTitle] = useState(initialTitle ? initialTitle : "");
     const [body, setBody] = useState(initialBody ? initialBody : "");
 
-    const onCreatePostClick = () => {
+    const onCreatePost = () => {
         const postData = { title, body};
         onSubmit(postData)
-            // .then(() => {
-            //     // clear 
-            //     setTitle("");
-            //     setBody("");
-            // });
+            .then(() => {
+                // clear the form fields after posting
+                setTitle("");
+                setBody("");
+            });
     };
 
     return (
@@ -43,8 +43,8 @@ function PostForm({ onSubmit , initialTitle, initialBody}) {
 
                     <div className="form-group">
                         <button
-                            className="btn btn-info"
-                            onClick={onCreatePostClick}>
+                            className="button"
+                            onClick={onCreatePost}>
                             Post
                         </button>
                     </div>
