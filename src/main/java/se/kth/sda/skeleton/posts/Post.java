@@ -32,11 +32,11 @@ public class Post {
     // Default constructor
     protected Post() { }
 
-    public Post(Long id, String title, String body, String email) {
+    public Post(Long id, String title, String body, String userEmail) {
         this.id = id;
         this.title = title;
         this.body = body;
-        this.userEmail = email;
+        this.userEmail = userEmail;
     }
 
     public void setId(Long id) {
@@ -61,8 +61,8 @@ public class Post {
         return body;
     }
 
-    public void setUserEmail(String email) {
-        this.userEmail = email;
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
     public String getUserEmail() {
