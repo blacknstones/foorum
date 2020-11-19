@@ -6,6 +6,7 @@ import CommentsApi from "../../api/CommentsApi";
 
 export default function PostDetailPage() {
     const { postId } = useParams();
+
     
     const [post, setPost] = useState([]);
     const [comments, setComments] = useState();
@@ -19,7 +20,8 @@ export default function PostDetailPage() {
         .then(response => setComments(response.data))
     };
 
-    
+
+
     useEffect(() => {
         getPost();
         getComments();  
