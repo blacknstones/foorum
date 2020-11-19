@@ -1,17 +1,14 @@
 import React, { useState } from 'react';
 
-function PostForm({ onSubmit , initialTitle, initialBody}) {
-    const [title, setTitle] = useState(initialTitle ? initialTitle : "");
-    const [body, setBody] = useState(initialBody ? initialBody : "");
+
+export default function PostForm({ onSubmit }) {
+    const [title, setTitle] = useState("");
+    const [body, setBody] = useState("");
+
 
     const onCreatePost = () => {
-        const postData = { title, body};
-        onSubmit(postData)
-            .then(() => {
-                // clear the form fields after posting
-                setTitle("");
-                setBody("");
-            });
+        const postData = {title, body};
+        onSubmit(postData);
     };
 
     return (
@@ -31,15 +28,13 @@ function PostForm({ onSubmit , initialTitle, initialBody}) {
 
                     <div className="form-group">
                         <label>Body: </label>
-                        <input
+                        <textarea
                             type="text"
                             className="form-control"
                             placeholder="......"
                             value={body}
                             onChange={e => setBody(e.target.value)} />
                     </div>
-
-
 
                     <div className="form-group">
                         <button
@@ -53,5 +48,3 @@ function PostForm({ onSubmit , initialTitle, initialBody}) {
         </div>
     );
 }
-
-export default PostForm;

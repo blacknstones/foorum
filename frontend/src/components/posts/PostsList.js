@@ -2,8 +2,6 @@ import React from "react";
 import PostCard from "./PostCard";
 
 export default function PostsList({ posts, onDelete }) {
-    console.log(posts);
-    console.log(posts.length);
 
     return (
         <div>
