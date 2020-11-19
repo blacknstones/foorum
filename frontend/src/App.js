@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     BrowserRouter as Router,
     Switch,
@@ -15,11 +15,18 @@ import Navbar from "./components/layout/Navbar";
 import LoginPage from "./components/auth/LoginPage";
 import HomePage from './components/home/HomePage';
 import PostsPage from "./components/posts/PostsPage";
-import ChatPage from './components/chat/ChatPage';
+import UserPage from './components/user/UserPage';
+import Api from './api/Api';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(Auth.isLoggedIn());
+  const [currentUser, serCurrentUser] = useState({});
   Auth.bindLoggedInStateSetter(setLoggedIn);
+
+  useEffect(() => {
+      Api.get("/user/me")
+      .then(res => serCurrentUser(res.data));
+  }, []);
   
   const loggedInRouter = (
             <Router>
@@ -28,15 +35,15 @@ function App() {
                 <div className="container mt-5">
                     <Switch>
                         <Route path="/posts">
-                            <PostsPage/>
+                            <PostsPage currentUser={currentUser}/>
                         </Route>
 
-                        <Route path="/chat">
-                            <ChatPage/>
+                        <Route path="/user/me">
+                            < UserPage currentUser={currentUser}/>
                         </Route>
 
                         <Route path="/">
-                          <HomePage/>
+                          <HomePage currentUser={currentUser}/>
                         </Route>
                     </Switch>
                 </div>

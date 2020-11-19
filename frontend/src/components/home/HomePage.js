@@ -5,10 +5,13 @@ function HomePage() {
     return (
         <div className="card">
             <div className="card-body">
-                <h4 className="card-title">Homepage</h4>
-                <p>This is foorum for you to post</p>
+                <h4 className="card-title">Home</h4>
+                <p> Welcome to Foorum!  </p>
+                <p>The world's next largest online forum for developers. </p>
+                <br/>
+                <h6>How to use Foorum:</h6>
+                <p>Browse posts by other developers and publish your own posts.</p>
                 <Link to="/posts">Post page</Link>
-               
             </div>
         </div>
     );

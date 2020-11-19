@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 
 
-export default function PostForm({ onSubmit }) {
+export default function PostForm({ onSubmit, currentUser}) {
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
 
+    console.log(currentUser);
+    
 
     const onCreatePost = () => {
-        const postData = {title, body};
+        const postData = {title, body };
         onSubmit(postData);
+        console.log(postData);
     };
 
     return (
@@ -39,7 +42,7 @@ export default function PostForm({ onSubmit }) {
                     <div className="form-group">
                         <button
                             className="button"
-                            onClick={onCreatePost}>
+                            onClick={onCreatePost} >
                             Post
                         </button>
                     </div>

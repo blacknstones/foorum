@@ -3,7 +3,7 @@ import PostForm from "./PostForm";
 import PostsApi from "../../api/PostsApi";
 import PostsList from "./PostsList";
 
-export default function PostsPage() {
+export default function PostsPage( {currentUser} ) {
     const [posts, setPosts] = useState([]);
     const [isCreating, setIsCreating] = useState(false);
     
@@ -38,10 +38,10 @@ export default function PostsPage() {
     return (
         <div>
             {isCreating ? 
-            <PostForm onSubmit = {createPost} /> : 
+            <PostForm onSubmit = {createPost} currentUser={currentUser} /> : 
             <button onClick={onCreatePostClick}>Create post</button>}
     
-            <PostsList posts={posts} 
+            <PostsList posts={posts} currentUser={currentUser}
             onDelete={deletePost}/>
         </div>
   
