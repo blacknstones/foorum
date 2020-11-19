@@ -1,6 +1,8 @@
 package se.kth.sda.skeleton.comments;
 
 import se.kth.sda.skeleton.posts.Post;
+import se.kth.sda.skeleton.user.User;
+
 import javax.persistence.*;
 
 @Entity //indicate that this object will be stored in database
@@ -14,18 +16,18 @@ public class Comment {
     @Column(columnDefinition = "TEXT")
     private String body;
 
-    private String userName;
+    private String userEmail;
 
-    @ManyToOne
-    private Post post;
+    private Long postId;
 
     // Default constructor
     protected Comment() { }
 
-    public Comment(Long id, String body, String userName) {
+    public Comment(Long id, Long postId, String body, String userEmail) {
         this.id = id;
+        this.postId = postId;
         this.body = body;
-        this.userName = userName;
+        this.userEmail = userEmail;
     }
 
     public void setId(Long id) {
@@ -33,6 +35,14 @@ public class Comment {
     }
     public Long getId() {
         return id;
+    }
+
+    public void setPostId(Long postId) {
+        this.postId = postId;
+    }
+
+    public Long getPostId() {
+        return postId;
     }
 
     public void setBody(String body) {
@@ -43,20 +53,13 @@ public class Comment {
         return body;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUserEmail(String userName) {
+        this.userEmail = userEmail;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUserEmail() {
+        return userEmail;
     }
 
-    public void setPost(Post post) {
-        this.post = post;
-    }
-
-    public Post getPost() {
-        return post;
-    }
 }
 

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import se.kth.sda.skeleton.auth.AuthService;
 
 import java.util.List;
 
@@ -11,7 +12,9 @@ import java.util.List;
 public class PostController {
     private PostService postService;
 
-    // Use @Autowired annotation to inject dependency
+    private AuthService authService;
+
+
     public PostController(@Autowired PostService postService) {
         this.postService = postService;
     }
@@ -30,13 +33,8 @@ public class PostController {
 
     // Create a new Post
     @PostMapping("/posts")
-    public Post create(@RequestBody Post Post) {
-        return postService.create(Post);
-    }
-
-    @PutMapping("/posts")
-    public Post update(@RequestBody Post updatedPost) {
-        return postService.update(updatedPost);
+    public Post create(@RequestBody Post post) {
+        return postService.create(post);
     }
 
     @DeleteMapping("/posts/{id}")

@@ -26,8 +26,6 @@ public class Post {
     @OneToMany
     private List<Comment> comments;
 
-    @OneToOne
-    private User user;
 
     // Default constructor
     protected Post() { }
@@ -42,9 +40,11 @@ public class Post {
     public void setId(Long id) {
         this.id = id;
     }
+
     public Long getId() {
         return id;
     }
+
     public void setTitle(String title) {
         this.title = title;
     }
@@ -67,6 +67,14 @@ public class Post {
 
     public String getUserEmail() {
         return userEmail;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
     
 }

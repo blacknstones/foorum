@@ -2,35 +2,30 @@ package se.kth.sda.skeleton.comments;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import se.kth.sda.skeleton.auth.AuthService;
 
 import java.util.List;
 
 @RestController
 public class CommentController {
 
+    @Autowired
     private CommentService commentService;
 
-    public CommentController(@Autowired CommentService commentService) {
-        this.commentService = commentService;
+    @Autowired
+    private AuthService authService;
+
+
+    @GetMapping("/comments/{postId}")
+    public List<Comment> getAll(@PathVariable Long postId) {
+        return commentService.getAllByPostId(postId);
     }
 
-    @GetMapping("/comments")
-    public List<Comment> getAll(@RequestParam (required = false) Long postId){
-        if (postId == null) {
-            return commentService.getAll();
-        } else {
-            return commentService.getAllByPostId(postId);
-        }
-    }
 
     @PostMapping("/comments")
     public Comment create(@RequestBody Comment comment) {
+       comment.setUserEmail(authService.getLoggedInUserEmail());
         return commentService.create(comment);
-    }
-
-    @PutMapping("/comments")
-    public Comment update(@RequestBody Comment updatedComment) {
-        return commentService.update(updatedComment);
     }
 
     @DeleteMapping("/comments/{id}")
