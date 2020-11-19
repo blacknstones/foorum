@@ -1,6 +1,7 @@
 package se.kth.sda.skeleton.posts;
 
 import se.kth.sda.skeleton.comments.Comment;
+import se.kth.sda.skeleton.user.User;
 
 import javax.persistence.*;
 import java.util.List;
@@ -19,20 +20,23 @@ public class Post {
     @Column(columnDefinition = "TEXT")
     private String body;
 
-    private String userName;
+    private String userEmail;
 
     // Manage the relationship in this class
     @OneToMany
     private List<Comment> comments;
 
+    @OneToOne
+    private User user;
+
     // Default constructor
     protected Post() { }
 
-    public Post(Long id, String title, String body, String userName) {
+    public Post(Long id, String title, String body, String email) {
         this.id = id;
         this.title = title;
         this.body = body;
-        this.userName = userName;
+        this.userEmail = email;
     }
 
     public void setId(Long id) {
@@ -57,12 +61,12 @@ public class Post {
         return body;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUserEmail(String email) {
+        this.userEmail = email;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUserEmail() {
+        return userEmail;
     }
     
 }
