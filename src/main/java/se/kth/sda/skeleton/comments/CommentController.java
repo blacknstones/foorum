@@ -12,8 +12,8 @@ public class CommentController {
     @Autowired
     private CommentService commentService;
 
-    @Autowired
-    private AuthService authService;
+ //   @Autowired
+   // private AuthService authService;
 
 
     @GetMapping("/comments/{postId}")
@@ -24,7 +24,7 @@ public class CommentController {
 
     @PostMapping("/comments")
     public Comment create(@RequestBody Comment comment) {
-       comment.setUserEmail(authService.getLoggedInUserEmail());
+  //      comment.setUserEmail(authService.getLoggedInUserEmail());
         return commentService.create(comment);
     }
 

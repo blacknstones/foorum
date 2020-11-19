@@ -10,14 +10,11 @@ import java.util.List;
 
 @RestController
 public class PostController {
+    @Autowired
     private PostService postService;
 
-    private AuthService authService;
-
-
-    public PostController(@Autowired PostService postService) {
-        this.postService = postService;
-    }
+//    @Autowired
+//    private AuthService authService;
 
     @GetMapping("/posts")
     public List<Post> getAll() {
@@ -34,6 +31,7 @@ public class PostController {
     // Create a new Post
     @PostMapping("/posts")
     public Post create(@RequestBody Post post) {
+//        post.setUserEmail(authService.getLoggedInUserEmail());
         return postService.create(post);
     }
 
