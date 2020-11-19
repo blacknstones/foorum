@@ -5,13 +5,10 @@ export default function PostForm({ onSubmit, currentUser}) {
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
 
-    console.log(currentUser);
-    
-
     const onCreatePost = () => {
-        const postData = {title, body };
+        const userEmail = currentUser.email;
+        const postData = {title, body, userEmail};
         onSubmit(postData);
-        console.log(postData);
     };
 
     return (

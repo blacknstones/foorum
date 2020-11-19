@@ -2,7 +2,7 @@ import React from "react";
 import PostCard from "./PostCard";
 
 export default function PostsList({ posts, onDelete, currentUser}) {
-
+    
     return (
         <div>
             {
