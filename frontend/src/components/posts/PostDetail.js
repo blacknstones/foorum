@@ -12,7 +12,7 @@ export default function PostDetail({ post }) {
         <article className=" card post-card mb-3">
             <div className="card-body">
                 <h4 className="mb-4">{title}</h4>
-                <p>{body}</p>
+                <p className="text-justify">{body}</p>
                 <p className="text-right text-muted">Posted by: {userEmail}</p>
         
 

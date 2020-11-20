@@ -14,10 +14,10 @@ export default function PostForm({ onSubmit, currentUser}) {
     return (
         <div className="card mb-4">
             <div className="card-body">
-                <h4 className="card-title" >What's on your mind</h4>
+                <h4 className="card-title" >Create your post</h4>
                 <div>
                     <div className="form-group">
-                        <label className="font-weight-bold">Title: </label>
+                        <h6 className="font-weight-bold text-left">Title: </h6>
                         <input
                             type="text"
                             className="form-control"
@@ -27,7 +27,7 @@ export default function PostForm({ onSubmit, currentUser}) {
                     </div>
 
                     <div className="form-group">
-                        <label className="font-weight-bold">Body: </label>
+                        <h6 className="font-weight-bold text-left">Body: </h6>
                         <textarea
                             type="text"
                             className="form-control"

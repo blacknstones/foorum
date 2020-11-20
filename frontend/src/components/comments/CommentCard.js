@@ -16,11 +16,11 @@ export default function CommentCard({ comment, onDelete, currentUser }) {
     return (
         <article className=" card comment-card">
             <div className="card-body">
-                <p>{body}</p>
-                <p className="text-muted">Comment by: {userEmail}</p>
+                <p className="text-justify">{body}</p>
+                <p className="text-muted text-right">Comment by: {userEmail}</p>
 
                 {currentUser.email === userEmail ?
-                <button className="btn btn-info"
+                <button className="btn btn-secondary"
                     onClick={() => onDelete({id})}>
                     Delete
                 </button>

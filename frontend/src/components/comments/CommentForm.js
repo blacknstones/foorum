@@ -5,12 +5,10 @@ export default function CommentForm({ onSubmit, postId, currentUser }) {
 
     const onCreateComment = () => {
         const userEmail = currentUser.email;
-        console.log("current user"); 
-        console.log(currentUser);
+        
         const commentData = { body, userEmail, postId };
         onSubmit(commentData);
-        console.log("commentData");
-        console.log(commentData);
+       
     };
 
 
