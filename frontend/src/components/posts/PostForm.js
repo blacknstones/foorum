@@ -17,7 +17,7 @@ export default function PostForm({ onSubmit, currentUser}) {
                 <h4 className="card-title" >What's on your mind</h4>
                 <div>
                     <div className="form-group">
-                        <label>Title: </label>
+                        <label className="font-weight-bold">Title: </label>
                         <input
                             type="text"
                             className="form-control"
@@ -27,7 +27,7 @@ export default function PostForm({ onSubmit, currentUser}) {
                     </div>
 
                     <div className="form-group">
-                        <label>Body: </label>
+                        <label className="font-weight-bold">Body: </label>
                         <textarea
                             type="text"
                             className="form-control"
@@ -38,7 +38,7 @@ export default function PostForm({ onSubmit, currentUser}) {
 
                     <div className="form-group">
                         <button
-                            className="btn btn-dark"
+                            className="btn btn-info"
                             onClick={onCreatePost} >
                             Post
                         </button>

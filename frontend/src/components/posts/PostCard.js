@@ -14,9 +14,9 @@ export default function PostCard({ post, onDelete, currentUser }) {
     return (
         <article className=" card post-card mb-3">
             <div className="card-body">
-                <Link to={`/posts/${id}`}>{title}</Link>
+                <Link to={`/posts/${id}`}><h4>{title}</h4></Link>
     
-                <p>Posted by: {userEmail}</p>
+                <p className="text-muted">Posted by: {userEmail}</p>
                 
                 {currentUser.email === userEmail ?
                 <button className="btn btn-secondary "
