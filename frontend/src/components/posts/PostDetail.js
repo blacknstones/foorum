@@ -14,8 +14,8 @@ export default function PostDetail({ post }) {
                 <h4>{title}</h4>
                 <p>{body}</p>
                 <p>Posted by: {userEmail}</p>
-                <button>Comment</button>
-                <button onClick={() => onDelete(post)}>Delete</button>
+        
+
             </div>
         </article>
     );
