@@ -4,6 +4,7 @@ import React from 'react';
 export default function CommentCard({ comment, onDelete, currentUser }) {
 
     const {
+        id,
         body,
         userEmail
     } = comment;
@@ -19,7 +20,7 @@ export default function CommentCard({ comment, onDelete, currentUser }) {
 
                 {currentUser.email === userEmail ?
                 <button
-                    onClick={() => onDelete({comment})}>
+                    onClick={() => onDelete({id})}>
                     Delete
                 </button>
                     : null}

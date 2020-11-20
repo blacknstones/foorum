@@ -48,17 +48,6 @@ export default function PostDetailPage() {
     }, []);
 
 
-    // useEffect(() => {
-        
-    // }, []);
-
-
-
-
-    
-
-
-
     return (
         <div>
             <Link to={"/posts"}>Go back</Link>
