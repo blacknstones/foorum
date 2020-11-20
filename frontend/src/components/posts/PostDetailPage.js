@@ -16,6 +16,7 @@ export default function PostDetailPage() {
     const [currentUser, setCurrentUser] = useState({});
 
     const createComment = (commentData) => {
+        console.log("this is create Comment" + commentData);
         return CommentsApi.createComment(commentData)
             .then(response => setComments([response.data, ...comments]))
 
@@ -38,22 +39,23 @@ export default function PostDetailPage() {
             .then(response => setComments(response.data))
     };
 
-    console.log(comments);
 
     useEffect(() => {
+        getPost();
+        getComments();
         Api.get("/user/me")
             .then(res => setCurrentUser(res.data));
     }, []);
 
 
-    useEffect(() => {
-        getPost();
-        getComments();
-    }, []);
+    // useEffect(() => {
+        
+    // }, []);
 
 
 
 
+    
 
 
 

@@ -53,7 +53,7 @@ public class Comment {
         return body;
     }
 
-    public void setUserEmail(String userName) {
+    public void setUserEmail(String userEmail) {
         this.userEmail = userEmail;
     }
 
