@@ -12,17 +12,17 @@ export default function PostCard({ post, onDelete, currentUser }) {
     } = post;
 
     return (
-        <article className=" card post-card">
+        <article className=" card post-card mb-3">
             <div className="card-body">
                 <Link to={`/posts/${id}`}>{title}</Link>
     
                 <p>Posted by: {userEmail}</p>
                 
                 {currentUser.email === userEmail ?
-                <button
+                <button className="btn btn-secondary "
                     onClick={() => onDelete({id})}>
                     Delete
-                </button>
+                </button >
                     : null}
                 
             </div>

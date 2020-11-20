@@ -34,7 +34,7 @@ export default function CommentForm({ onSubmit, postId, currentUser }) {
                     </div>
                     <div className="form-group">
                         <button
-                            className="button"
+                            className="btn btn-info"
                             onClick={onCreateComment} >
                             Submit
                         </button>

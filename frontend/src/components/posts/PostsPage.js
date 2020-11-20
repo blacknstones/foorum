@@ -49,7 +49,7 @@ export default function PostsPage() {
         <div>
             {isCreating ? 
             <PostForm onSubmit = {createPost} currentUser={currentUser} /> : 
-            <button onClick={onCreatePostClick}>Create post</button>}
+            <button className="btn btn-dark mb-4" onClick={onCreatePostClick}>Create post</button>}
     
             <PostsList posts={posts} currentUser={currentUser}
             onDelete={deletePost}/>

@@ -11,6 +11,7 @@ export default function CommentCard({ comment, onDelete, currentUser }) {
 
     console.log(comment);
 
+    console.log(id);
 
     return (
         <article className=" card comment-card">
@@ -19,7 +20,7 @@ export default function CommentCard({ comment, onDelete, currentUser }) {
                 <p>Comment by: {userEmail}</p>
 
                 {currentUser.email === userEmail ?
-                <button
+                <button className="btn btn-info"
                     onClick={() => onDelete({id})}>
                     Delete
                 </button>
@@ -27,4 +28,5 @@ export default function CommentCard({ comment, onDelete, currentUser }) {
             </div>
         </article>
     );
+
 }

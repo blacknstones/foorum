@@ -1,6 +1,6 @@
 body {
   min-height: 100vh;
-  background: #ebecec;
+  background: #5dbcd2;
 }
 
 .App {
@@ -11,8 +11,9 @@ body {
   height: 40vmin;
 }
 
+
 .App-header {
-  background-color: #282c34;
+  background-color: #149c9c;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -21,12 +22,41 @@ body {
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
 .App-link {
-  color: #09d3ac;
+  color: #20ccaa;
 }
-
 .logo {
   max-width: 20vh;
+}
+.card-body{
+  background-color: beige;
+  border-color: #330421;
+}
+.logo img{
+  max-width: 50px;
+}
+.card-body{
+ background-color: antiquewhite;
+border: solid ;
+border-color: black;
+
+background-color: #ebecec;
+
+
 
 }
+.card post-card{
+  background-color: antiquewhite;
+  border: solid ;
+border-color: #09d3ac;
+}
+
+.container{
+  text-align: center;
+}
+
+.logo img{
+  max-width: 50px;
+
+}
+

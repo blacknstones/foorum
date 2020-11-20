@@ -16,6 +16,12 @@ public class CommentController {
    // private AuthService authService;
 
 
+    @GetMapping("/comments")
+    public List<Comment> getAll() {
+        return commentService.getAll();
+    }
+
+
     @GetMapping("/comments/{postId}")
     public List<Comment> getAll(@PathVariable Long postId) {
         return commentService.getAllByPostId(postId);

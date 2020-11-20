@@ -12,7 +12,7 @@ export default function PostForm({ onSubmit, currentUser}) {
     };
 
     return (
-        <div className="card">
+        <div className="card mb-4">
             <div className="card-body">
                 <h4 className="card-title" >What's on your mind</h4>
                 <div>
@@ -38,7 +38,7 @@ export default function PostForm({ onSubmit, currentUser}) {
 
                     <div className="form-group">
                         <button
-                            className="button"
+                            className="btn btn-dark"
                             onClick={onCreatePost} >
                             Post
                         </button>

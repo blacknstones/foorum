@@ -12,8 +12,8 @@ function HomePage() {
                 <br />
                 <h6>How to use Foorum:</h6>
                 <p>Browse posts by other developers and publish your own posts.</p>
-                <Link to="/posts" >Post page</Link>
-                <Link to="/user/me" >My page</Link>
+                <Link to="/posts" className="btn btn-dark mr-3" >Post page</Link>
+                <Link to="/user/me"  className="btn btn-dark">My page</Link>
             </div>
         </div>
     );

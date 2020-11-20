@@ -28,8 +28,6 @@ export default function PostDetailPage() {
 
     };
 
-
-
     const getPost = () => {
         PostsApi.getPostById(postId)
             .then(response => setPost(response.data))
@@ -50,7 +48,7 @@ export default function PostDetailPage() {
 
     return (
         <div>
-            <Link to={"/posts"}>Go back</Link>
+            <Link className="btn btn-dark mb-2" to={"/posts"}>Go back</Link>
             <PostDetail post={post} />
 
             <CommentForm onSubmit={createComment} postId={postId} currentUser={currentUser} />
