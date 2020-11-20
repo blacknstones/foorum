@@ -29,7 +29,7 @@ function LoginPage() {
                             title="Foorum logo"
                             alt="logo for foorum" />
                 
-                        <p>There's always room for foo.</p>
+                        <p className="text-white">There's always room for foo.</p>
                     </div>
 
                     <div className="col-md-6">

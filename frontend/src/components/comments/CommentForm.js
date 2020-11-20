@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
-export default function CommentForm({ onSubmit, postId, currentUser }) {
+export default function CommentForm({ onSubmit, post, currentUser }) {
     const [body, setBody] = useState("");
 
     const onCreateComment = () => {
         const userEmail = currentUser.email;
         
-        const commentData = { body, userEmail, postId };
+        const commentData = { body, userEmail, post };
         onSubmit(commentData);
        
     };

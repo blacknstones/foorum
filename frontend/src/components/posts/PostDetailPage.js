@@ -16,7 +16,6 @@ export default function PostDetailPage() {
     const [currentUser, setCurrentUser] = useState({});
 
     const createComment = (commentData) => {
-        console.log("this is create Comment" + commentData);
         return CommentsApi.createComment(commentData)
             .then(response => setComments([response.data, ...comments]))
 
@@ -51,7 +50,7 @@ export default function PostDetailPage() {
             <Link className="btn btn-dark mb-4" to={"/posts"}>Go back</Link>
             <PostDetail post={post} />
 
-            <CommentForm onSubmit={createComment} postId={postId} currentUser={currentUser} />
+            <CommentForm onSubmit={createComment} post={post} currentUser={currentUser} />
             <div>
                 {comments === undefined ?
                     <p>No comments to show. Create a comment now.</p> :
